@@ -3,17 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签：: 生活 | DylanWen&#39;s  Blog</title>
+    <title>滚键盘 | DylanWen&#39;s  Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="DylanWen&#39;s  Blog">
-<meta property="og:url" content="http://wenshunjie.top/tags/生活/index.html">
+<meta property="og:title" content="滚键盘">
+<meta property="og:url" content="http://wenshunjie.top/categories/code/index.html">
 <meta property="og:site_name" content="DylanWen&#39;s  Blog">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-11T11:46:11.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DylanWen&#39;s  Blog">
+<meta name="twitter:title" content="滚键盘">
     
 
     
@@ -145,71 +146,114 @@ var _hmt = _hmt || [];
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>标签：: <em>生活</em>
+    <em class="page-title-link" data-url="/categories/code/index.html">滚键盘</em>
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="page-" class="article article-single article-type-page" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/01/09/我的第一篇博文/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.loli.net/2018/01/11/5a56f171b9bdb.jpeg)" alt="我的第一篇博文" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-01-09T15:39:49.000Z" itemprop="datePublished">2018-01-09</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/01/09/我的第一篇博文/">我的第一篇博文</a>
+        滚键盘
         </h1>
     
 
-        <p class="article-excerpt">
-            写在前面建立这个博客，准确点来说前前后后捣鼓了一个星期，基本上是用实习上班期间闲暇之余以及下班回家休息捣鼓出来。除了自己通过百度，知乎，简书等平台进行相关资料搜集，在此特别感谢分钟爸爸在我建立博客过程中关于Github以及Git Bash使用上慷慨解囊，还要感谢几个在Hexo使用上给我相当多启发和指引的几个大佬。希望今后的日子继续向他们看齐，也希望我自己的博客能持续书写，养成一个好习惯，在记录中不
-        </p>
+            </header>
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://wenshunjie.top/categories/code/index.html" data-id="cjcafrj4h0003ckuh7bw9hbc7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
 </article>
-    
-        </div>
-    
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzEyMi85Njgx">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
+       if (typeof LivereTower === 'function') { return; }
 
-    </div></section>
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
 
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
 
 
                         </div>
