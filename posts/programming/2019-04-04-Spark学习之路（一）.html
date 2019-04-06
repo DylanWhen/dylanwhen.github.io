@@ -18,7 +18,7 @@
 <meta property="og:description" content="研究生考试终于告一段落，但学习的脚步仍然不能停止。由于是往届生，在学校也没有住宿，校外住宿也不大方便，于是回来学习。为了尽快进入学习状态以及跟上实验室其他同学，张旭教授要求每周汇报一次学习进度，准备在自己的博客进行书写。 要求学习的内容及工具如下：  语言方面：   Java Python Scala    平台方面：   Spark Hive Processing      现阶段已经着手在电脑">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/spark-logo-trademark.png">
-<meta property="og:updated_time" content="2019-04-06T02:43:37.823Z">
+<meta property="og:updated_time" content="2019-04-06T02:57:39.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark学习之路（一）">
 <meta name="twitter:description" content="研究生考试终于告一段落，但学习的脚步仍然不能停止。由于是往届生，在学校也没有住宿，校外住宿也不大方便，于是回来学习。为了尽快进入学习状态以及跟上实验室其他同学，张旭教授要求每周汇报一次学习进度，准备在自己的博客进行书写。 要求学习的内容及工具如下：  语言方面：   Java Python Scala    平台方面：   Spark Hive Processing      现阶段已经着手在电脑">
@@ -218,12 +218,11 @@ var _hmt = _hmt || [];
 </blockquote>
 </li>
 </ul>
-<p>##为什么使用Spark来进行数据处理</p>
-<p>###Spark简介<br><strong>Apache Spark</strong>是开放源码的集群运算框架，由加州大学伯克利分校的AMPLab开发。Spark是一个弹性的运算框架，适合进行Spark Streaming数据流处理、Spark SQL互动分析、MLlib机器学习等应用，因此Spark可作为一个用途广泛的大数据运算平台。Spark允许用户将数据加载到cluster集群的内存中存储，并多次重复运算，非常适合用于机器学习的算法。</p>
+<h2 id="为什么使用Spark来进行数据处理"><a href="#为什么使用Spark来进行数据处理" class="headerlink" title="为什么使用Spark来进行数据处理"></a>为什么使用Spark来进行数据处理</h2><h3 id="Spark简介"><a href="#Spark简介" class="headerlink" title="Spark简介"></a>Spark简介</h3><p><strong>Apache Spark</strong>是开放源码的集群运算框架，由加州大学伯克利分校的AMPLab开发。Spark是一个弹性的运算框架，适合进行Spark Streaming数据流处理、Spark SQL互动分析、MLlib机器学习等应用，因此Spark可作为一个用途广泛的大数据运算平台。Spark允许用户将数据加载到cluster集群的内存中存储，并多次重复运算，非常适合用于机器学习的算法。</p>
 <p>Spark的核心是<strong>RDD(Resilient Distributed Dataset)弹性分布式数据集</strong>，是由AMPLab实验室所提出的的概念，属于一种分布式的内容。<br>Apache Spark是一种快速的集群计算技术，专为快速计算而设计。它基于Hadoop MapReduce，它扩展了MapReduce模型，以有效地将其用于更多类型的计算，包括交互式查询和流处理。 Spark的主要特性是它的内存中集群计算，提高了应用程序的处理速度。</p>
 <p>Spark旨在涵盖各种工作负载，如批处理应用程序，迭代算法，交互式查询和流式处理。除了在相应系统中支持所有这些工作负载之外，它还减少了维护单独工具的管理负担。</p>
-<p>###Spark和Hadoop的关系<br>行业广泛使用Hadoop来分析他们的数据集。原因是Hadoop框架基于一个简单的编程模型（MapReduce），它支持可扩展，灵活，容错和成本有效的计算解决方案。这里，主要关注的是在处理大型数据集时在查询之间的等待时间和运行程序的等待时间方面保持速度。<br>Spark由Apache Software Foundation引入，用于加速Hadoop计算软件过程。<br>对于一个普遍的信念，Spark不是Hadoop的修改版本，并不是真的依赖于Hadoop，因为它有自己的集群管理。 Hadoop只是实现Spark的方法之一。<br>Spark以两种方式使用Hadoop - 一个是存储，另一个是处理。由于Spark具有自己的集群管理计算，因此它仅使用Hadoop进行存储。<br><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/Hadoop%E5%92%8CSpark.jpg" alt="Hadoop和Spark"></p>
-<p>###Spark的优势<br>Apache Spark具有以下优势：</p>
+<h3 id="Spark和Hadoop的关系"><a href="#Spark和Hadoop的关系" class="headerlink" title="Spark和Hadoop的关系"></a>Spark和Hadoop的关系</h3><p>行业广泛使用Hadoop来分析他们的数据集。原因是Hadoop框架基于一个简单的编程模型（MapReduce），它支持可扩展，灵活，容错和成本有效的计算解决方案。这里，主要关注的是在处理大型数据集时在查询之间的等待时间和运行程序的等待时间方面保持速度。<br>Spark由Apache Software Foundation引入，用于加速Hadoop计算软件过程。<br>对于一个普遍的信念，Spark不是Hadoop的修改版本，并不是真的依赖于Hadoop，因为它有自己的集群管理。 Hadoop只是实现Spark的方法之一。<br>Spark以两种方式使用Hadoop - 一个是存储，另一个是处理。由于Spark具有自己的集群管理计算，因此它仅使用Hadoop进行存储。<br><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/Hadoop%E5%92%8CSpark.jpg" alt="Hadoop和Spark"></p>
+<h3 id="park的优势"><a href="#park的优势" class="headerlink" title="park的优势"></a>park的优势</h3><p>Apache Spark具有以下优势：</p>
 <ol>
 <li><p>速度</p>
 <p>Spark有助于在Hadoop集群中运行应用程序，在内存中速度提高100倍，在磁盘上运行时提高10倍。这可以通过减少对磁盘的读/写操作的数量来实现。它将中间处理数据存储在存储器中。</p>
@@ -235,8 +234,7 @@ var _hmt = _hmt || [];
 <p>Spark不仅支持“Map”和“reduce”。它还支持SQL查询，流数据，机器学习（ML）和图算法。</p>
 </li>
 </ol>
-<p>###Spark基于Hadoop</p>
-<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/spark_built_on_hadoop.jpg" alt="Hadoop组件构建Spark的三种方式"></p>
+<h3 id="Spark基于Hadoop"><a href="#Spark基于Hadoop" class="headerlink" title="Spark基于Hadoop"></a>Spark基于Hadoop</h3><p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/spark_built_on_hadoop.jpg" alt="Hadoop组件构建Spark的三种方式"></p>
 <p>Spark部署有三种方式，如下所述:</p>
 <ol>
 <li><p>Standalone- Spark独立部署意味着Spark占据HDFS（Hadoop分布式文件系统）顶部的位置，并明确为HDFS分配空间。 这里，Spark和MapReduce将并行运行以覆盖集群上的所有spark作业。</p>
@@ -246,8 +244,7 @@ var _hmt = _hmt || [];
 <li><p>Spark in MapReduce (SIMR) - MapReduce中的Spark用于在独立部署之外启动spark job。 使用SIMR，用户可以启动Spark并使用其shell而无需任何管理访问。</p>
 </li>
 </ol>
-<p>###Spark组件</p>
-<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/components_of_spark.jpg" alt="Spark组成部分"></p>
+<h3 id="Spark组件"><a href="#Spark组件" class="headerlink" title="Spark组件"></a>Spark组件</h3><p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/components_of_spark.jpg" alt="Spark组成部分"></p>
 <ol>
 <li><p>Apache Spark Core</p>
 <p>Spark Core是spark平台的基础通用执行引擎，所有其他功能都是基于。它在外部存储系统中提供内存计算和引用数据集。</p>
@@ -264,8 +261,7 @@ var _hmt = _hmt || [];
 <li><p>GraphX<br>GraphX是Spark上的一个分布式图形处理框架。它提供了一个用于表达图形计算的API，可以通过使用Pregel抽象API为用户定义的图形建模。它还为此抽象提供了一个优化的运行时。</p>
 </li>
 </ol>
-<p>###Python Spark机器学习</p>
-<p>Python机器学习膜卷主要是Pandas、Scikit-learn，但是在大数据时代有大量的数据，必须具有分布式存储以及分布式计算才能够处理。有了Spark之后，使用Python开发Spark应用程序，可以使用HDFS分布式存储大量数据。还可以使用在多台计算机所建立的集群（例如：Spark stand alone、Hadoop YARN、Mesos）上来执行分布式计算。再加上Spark特有的内存运算，让执行速度大幅提升。</p>
+<h3 id="Python-Spark机器学习"><a href="#Python-Spark机器学习" class="headerlink" title="Python Spark机器学习"></a>Python Spark机器学习</h3><p>Python机器学习膜卷主要是Pandas、Scikit-learn，但是在大数据时代有大量的数据，必须具有分布式存储以及分布式计算才能够处理。有了Spark之后，使用Python开发Spark应用程序，可以使用HDFS分布式存储大量数据。还可以使用在多台计算机所建立的集群（例如：Spark stand alone、Hadoop YARN、Mesos）上来执行分布式计算。再加上Spark特有的内存运算，让执行速度大幅提升。</p>
 <p>Spark机器学习主要有两个API：</p>
 <ol>
 <li><p>Spark MLlib:RDD-based 机器学习API：<br>Spark在一开始就提供了以RDD为基础的机器学习模块，优点是可以发挥in-memory与分布式运算，大幅提升需要迭代的机器学习模块的执行效率，功能强大，能完成Spark所有功能。</p>
@@ -284,7 +280,7 @@ var _hmt = _hmt || [];
 
 
 
-    <a data-url="http://wenshunjie.top/posts/programming/2019-04-04-Spark学习之路（一）.html" data-id="cju4wmwhz000234r3qso1gv9v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://wenshunjie.top/posts/programming/2019-04-04-Spark学习之路（一）.html" data-id="cju4wreg300001sr3b77jvovh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
