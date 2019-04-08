@@ -18,7 +18,7 @@
 <meta property="og:description" content="研究生考试终于告一段落，但学习的脚步仍然不能停止。由于是往届生，在学校也没有住宿，校外住宿也不大方便，于是回来学习。为了尽快进入学习状态以及跟上实验室其他同学，张旭教授要求每周汇报一次学习进度，准备在自己的博客进行书写。 要求学习的内容及工具如下：  语言方面：   Java Python Scala    平台方面：   Spark Hive Processing      现阶段已经着手在电脑">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/spark-logo-trademark.png">
-<meta property="og:updated_time" content="2019-04-08T14:13:48.867Z">
+<meta property="og:updated_time" content="2019-04-08T14:19:02.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark学习之路（一）">
 <meta name="twitter:description" content="研究生考试终于告一段落，但学习的脚步仍然不能停止。由于是往届生，在学校也没有住宿，校外住宿也不大方便，于是回来学习。为了尽快进入学习状态以及跟上实验室其他同学，张旭教授要求每周汇报一次学习进度，准备在自己的博客进行书写。 要求学习的内容及工具如下：  语言方面：   Java Python Scala    平台方面：   Spark Hive Processing      现阶段已经着手在电脑">
@@ -211,12 +211,12 @@ var _hmt = _hmt || [];
 <blockquote>
 <ul>
 <li>Ubuntu:CentOS-7-x86_64-DVD-1810</li>
-<li>Hadoop:3.2.0</li>
+<li>Hadoop：3.2.0</li>
 <li>Spark：2.2.3</li>
-<li>Scala：</li>
-<li>Python:3.7.3</li>
-<li>Anaconda:3.0</li>
-<li>Jdk:1.8.0_201</li>
+<li>Scala：2.11.12</li>
+<li>Python：3.7.3</li>
+<li>Anaconda：3.0</li>
+<li>Jdk：1.8.0_201</li>
 </ul>
 </blockquote>
 </li>
@@ -548,8 +548,7 @@ var _hmt = _hmt || [];
 <p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/IPython%20Notebook1.jpg" alt="IPython Notebook运行查看运行方式代码"></p>
 <p>在退出Notebook之前，需要及时保存内容。输入Ctrl+C在终端进行关闭，输入y结束。</p>
 <h4 id="IPython-Notebook总结"><a href="#IPython-Notebook总结" class="headerlink" title="IPython Notebook总结"></a>IPython Notebook总结</h4><p>IPython Notebook同样也有几种运行方式，也可以在Hadoop YARN-client模式、Spark Stand Alone模式运行。</p>
-<p>##Spark学习之路（一）填坑</p>
-<h3 id="Q1-启动HDFS缺少用户定义"><a href="#Q1-启动HDFS缺少用户定义" class="headerlink" title="Q1 启动HDFS缺少用户定义"></a>Q1 启动HDFS缺少用户定义</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Starting namenodes on [localhost] </span><br><span class="line">ERROR: Attempting to launch hdfs namenode as root </span><br><span class="line">ERROR: but there is no HDFS_NAMENODE_USER defined. Aborting launch.</span><br></pre></td></tr></table></figure>
+<h2 id="Spark第一次填坑"><a href="#Spark第一次填坑" class="headerlink" title="Spark第一次填坑"></a>Spark第一次填坑</h2><h3 id="Q1-启动HDFS缺少用户定义"><a href="#Q1-启动HDFS缺少用户定义" class="headerlink" title="Q1 启动HDFS缺少用户定义"></a>Q1 启动HDFS缺少用户定义</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Starting namenodes on [localhost] </span><br><span class="line">ERROR: Attempting to launch hdfs namenode as root </span><br><span class="line">ERROR: but there is no HDFS_NAMENODE_USER defined. Aborting launch.</span><br></pre></td></tr></table></figure>
 <p>解决办法：</p>
 <p>修改tart-dfs.sh、stop-dfs.sh，加上</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HDFS_DATANODE_USER=root </span><br><span class="line">HADOOP_SECURE_DN_USER=hdfs </span><br><span class="line">HDFS_NAMENODE_USER=root </span><br><span class="line">HDFS_SECONDARYNAMENODE_USER=root</span><br></pre></td></tr></table></figure>
@@ -573,8 +572,7 @@ var _hmt = _hmt || [];
 <p>新版本的hadoop的yarn中需要配置上正面的内容，于是在yarn-site.xml添加正面内容：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>master<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>data1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>data1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>保存完同时覆盖集群其他节点上的这个文件，最后重启yarn再启动mapreduce应用，成功运行。</p>
-<p>##接下来计划</p>
-<p><strong>继续学习《Python+Spark2.0+Hadoop机器学习与大数据实战》</strong></p>
+<h2 id="接下来计划"><a href="#接下来计划" class="headerlink" title="接下来计划"></a>接下来计划</h2><p><strong>继续学习《Python+Spark2.0+Hadoop机器学习与大数据实战》</strong></p>
 <ol>
 <li>关于RDD基本运算、eclipse+pyDev的安装和运行返利程序</li>
 <li>RDD为基础的Spark MLlib机器学习，包括创建推荐引擎、决策树二元分类、逻辑回归二元分类、SVM二元分类、朴素贝叶斯二元分类、决策树多元分类、决策树回归分析等</li>
@@ -589,7 +587,7 @@ var _hmt = _hmt || [];
 
 
 
-    <a data-url="http://wenshunjie.top/posts/programming/2019-04-04-Spark学习之路（一）.html" data-id="cju8ftyd3000hukr31hbytkep" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://wenshunjie.top/posts/programming/2019-04-04-Spark学习之路（一）.html" data-id="cju8fx8jq000hlor3w6w13yka" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
