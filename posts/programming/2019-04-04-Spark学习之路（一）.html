@@ -18,7 +18,7 @@
 <meta property="og:description" content="研究生考试终于告一段落，但学习的脚步仍然不能停止。由于是往届生，在学校也没有住宿，校外住宿也不大方便，于是回来学习。为了尽快进入学习状态以及跟上实验室其他同学，张旭教授要求每周汇报一次学习进度，准备在自己的博客进行书写。 要求学习的内容及工具如下：  语言方面：   Java Python Scala    平台方面：   Spark Hive Processing      现阶段已经着手在电脑">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/spark-logo-trademark.png">
-<meta property="og:updated_time" content="2019-04-07T15:26:03.789Z">
+<meta property="og:updated_time" content="2019-04-08T14:13:48.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark学习之路（一）">
 <meta name="twitter:description" content="研究生考试终于告一段落，但学习的脚步仍然不能停止。由于是往届生，在学校也没有住宿，校外住宿也不大方便，于是回来学习。为了尽快进入学习状态以及跟上实验室其他同学，张旭教授要求每周汇报一次学习进度，准备在自己的博客进行书写。 要求学习的内容及工具如下：  语言方面：   Java Python Scala    平台方面：   Spark Hive Processing      现阶段已经着手在电脑">
@@ -213,6 +213,7 @@ var _hmt = _hmt || [];
 <li>Ubuntu:CentOS-7-x86_64-DVD-1810</li>
 <li>Hadoop:3.2.0</li>
 <li>Spark：2.2.3</li>
+<li>Scala：</li>
 <li>Python:3.7.3</li>
 <li>Anaconda:3.0</li>
 <li>Jdk:1.8.0_201</li>
@@ -223,7 +224,7 @@ var _hmt = _hmt || [];
 <h2 id="为什么使用Spark来进行数据处理"><a href="#为什么使用Spark来进行数据处理" class="headerlink" title="为什么使用Spark来进行数据处理"></a>为什么使用Spark来进行数据处理</h2><h3 id="Spark简介"><a href="#Spark简介" class="headerlink" title="Spark简介"></a>Spark简介</h3><p><strong>Apache Spark</strong>是开放源码的集群运算框架，由加州大学伯克利分校的AMPLab开发。Spark是一个弹性的运算框架，适合进行Spark Streaming数据流处理、Spark SQL互动分析、MLlib机器学习等应用，因此Spark可作为一个用途广泛的大数据运算平台。Spark允许用户将数据加载到cluster集群的内存中存储，并多次重复运算，非常适合用于机器学习的算法。</p>
 <p>Spark的核心是<strong>RDD(Resilient Distributed Dataset)弹性分布式数据集</strong>，是由AMPLab实验室所提出的的概念，属于一种分布式的内容。<br>Apache Spark是一种快速的集群计算技术，专为快速计算而设计。它基于Hadoop MapReduce，它扩展了MapReduce模型，以有效地将其用于更多类型的计算，包括交互式查询和流处理。 Spark的主要特性是它的内存中集群计算，提高了应用程序的处理速度。</p>
 <p>Spark旨在涵盖各种工作负载，如批处理应用程序，迭代算法，交互式查询和流式处理。除了在相应系统中支持所有这些工作负载之外，它还减少了维护单独工具的管理负担。</p>
-<h3 id="Spark和Hadoop的关系"><a href="#Spark和Hadoop的关系" class="headerlink" title="Spark和Hadoop的关系"></a>Spark和Hadoop的关系</h3><p>行业广泛使用Hadoop来分析他们的数据集。原因是Hadoop框架基于一个简单的编程模型（MapReduce），它支持可扩展，灵活，容错和成本有效的计算解决方案。这里，主要关注的是在处理大型数据集时在查询之间的等待时间和运行程序的等待时间方面保持速度。<br>Spark由Apache Software Foundation引入，用于加速Hadoop计算软件过程。<br>对于一个普遍的信念，Spark不是Hadoop的修改版本，并不是真的依赖于Hadoop，因为它有自己的集群管理。 Hadoop只是实现Spark的方法之一。<br>Spark以两种方式使用Hadoop - 一个是存储，另一个是处理。由于Spark具有自己的集群管理计算，因此它仅使用Hadoop进行存储。<br><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/Hadoop%E5%92%8CSpark.jpg" alt="Hadoop和Spark"></p>
+<h3 id="Spark和Hadoop的关系"><a href="#Spark和Hadoop的关系" class="headerlink" title="Spark和Hadoop的关系"></a>Spark和Hadoop的关系</h3><p>行业广泛使用Hadoop来分析他们的数据集。原因是Hadoop框架基于一个简单的编程模型（MapReduce），它支持可扩展，灵活，容错和成本有效的计算解决方案。这里，主要关注的是在处理大型数据集时在查询之间的等待时间和运行程序的等待时间方面保持速度。<br>Spark由Apache Software Foundation引入，用于加速Hadoop计算软件过程。<br>对于一个普遍的信念，Spark不是Hadoop的修改版本，并不是真的依赖于Hadoop，因为它有自己的集群管理。 Hadoop只是实现Spark的方法之一。<br>Spark以两种方式使用Hadoop，一个是存储，另一个是处理。由于Spark具有自己的集群管理计算，因此它仅使用Hadoop进行存储。<br><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/Hadoop%E5%92%8CSpark.jpg" alt="Hadoop和Spark"></p>
 <h3 id="park的优势"><a href="#park的优势" class="headerlink" title="park的优势"></a>park的优势</h3><p>Apache Spark具有以下优势：</p>
 <ol>
 <li><p>速度</p>
@@ -278,17 +279,19 @@ var _hmt = _hmt || [];
 <h2 id="Linux虚拟机与Hadoop分布式平台搭建"><a href="#Linux虚拟机与Hadoop分布式平台搭建" class="headerlink" title="Linux虚拟机与Hadoop分布式平台搭建"></a>Linux虚拟机与Hadoop分布式平台搭建</h2><p>在毕设的时候采用的也是VMvare运行CentOS7的Linux虚拟机，这次采用Ubuntu的系统，开始觉得应该大同小异，并且以前配置过环境，会比较轻车熟路，但是实际上到Pyspark正常运行也花了两天时间，期间踩了无数的坑，为了以后更好的配置环境，现记录如下，并且汇总自己的踩坑记录。</p>
 <h3 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h3><p>系统安装过程不难，需要注意到是Ubuntu输入法的设置以及设置共享剪贴板。</p>
 <h4 id="输入法设置"><a href="#输入法设置" class="headerlink" title="输入法设置"></a>输入法设置</h4><p>由于安装的时候选择语言是汉语，但是大部分情况下输入命令和程序都是英文，必须自行切换输入法，这样极其不方便，所以最好把默认输入法改成英文并且把输入法切换方式改成我们Windows常用的方式。</p>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/language.jpg" alt="输入法设置"></p>
 <p>在设置&gt;设备&gt;键盘中进行切换方式的设置。</p>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/language_shift.jpg" alt="输入法切换"></p>
 <h4 id="共享剪贴板设置"><a href="#共享剪贴板设置" class="headerlink" title="共享剪贴板设置"></a>共享剪贴板设置</h4><p>在VMvare软件中，自带有VMTools工具，可以将Windows和虚拟机共享剪贴板，挂载VMTools进行解压安装即可。</p>
 <p>至于选择最佳下载服务器，这个我觉得不太必要设置。</p>
 <h3 id="Hadoop分布式系统配置"><a href="#Hadoop分布式系统配置" class="headerlink" title="Hadoop分布式系统配置"></a>Hadoop分布式系统配置</h3><h4 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h4><p>Hadoop是使用Java开发的，所以必须先安装JDK。由于在安装Ubuntu的时候已经选择了安装开发环境，所以已经自动安装好了较高版本的Java，但是这也是影响我后面无法启动ResorceManager进程的一个原因（详见爬坑记录）。</p>
 <p>所以我最终是采用Jdk:1.8.0_201：</p>
 <p><strong>查询Java版本</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java -version</span><br></pre></td></tr></table></figure>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/java-version.jpg" alt="Java版本"></p>
 <p><strong>查询Java安装路径</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --display Java</span><br></pre></td></tr></table></figure>
-<p>####SSH免密登陆</p>
-<p>Hadoop是由多台服务器组成，再启动Hadoop系统时，NameNode必须与DataNode连接并且管理这些节点。系统会要求用户输入密码，为了系统顺利运行而不手动输入密码，通常采用SSH设置成无密码登陆。在安装系统的时候好像也已经存在了SSH和rsync，以防万一补充安装方法。</p>
+<h4 id="SSH免密登陆"><a href="#SSH免密登陆" class="headerlink" title="SSH免密登陆"></a>SSH免密登陆</h4><p>Hadoop是由多台服务器组成，再启动Hadoop系统时，NameNode必须与DataNode连接并且管理这些节点。系统会要求用户输入密码，为了系统顺利运行而不手动输入密码，通常采用SSH设置成无密码登陆。在安装系统的时候好像也已经存在了SSH和rsync，以防万一补充安装方法。</p>
 <p><strong>安装SSH</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ssh</span><br></pre></td></tr></table></figure>
 <p><strong>安装rsync</strong></p>
@@ -311,12 +314,16 @@ var _hmt = _hmt || [];
 <p><strong>移动Hadoop到/usr/local</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv hadoop-3.2.0 /usr/<span class="built_in">local</span>/hadoop</span><br></pre></td></tr></table></figure>
 <h4 id="设置Hadoop环境变量"><a href="#设置Hadoop环境变量" class="headerlink" title="设置Hadoop环境变量"></a>设置Hadoop环境变量</h4><p>每个组件配置环境变量是最关键的一环，并且版本不同的Hadoop在环境变量的配置上也有细微的差别，由于我采用了最新的3.2.0的版本，踩了许多坑，详见爬坑记录，现附我已经配置成功的主、从机代码。</p>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/Hadoop-version.jpg" alt="Hadoop版本"></p>
 <h5 id="主机"><a href="#主机" class="headerlink" title="主机"></a>主机</h5><p><strong>编辑~/.bashrc</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>该文件是系统整体环境变量的核心，想要直接通过hadoop、java、scala等命令访问，就必须配置好这个文件，在文件末尾加入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/<span class="built_in">local</span>/hadoop </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/sbin </span><br><span class="line"><span class="built_in">export</span> HADOOP_MAPRED_HOME=<span class="variable">$HADOOP_HOME</span> </span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_HOME=<span class="variable">$HADOOP_HOME</span> </span><br><span class="line"><span class="built_in">export</span> HADOOP_HDFS_HOME=<span class="variable">$HADOOP_HOME</span> </span><br><span class="line"><span class="built_in">export</span> YARN_HOME=<span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_LIB_NATIVE_DIR=<span class="variable">$HADOOP_HOME</span>/lib/native </span><br><span class="line"><span class="built_in">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_HOME</span>/lib"</span> </span><br><span class="line"><span class="built_in">export</span> JAVA_LIBRARY_PATH=<span class="variable">$HADOOP_HOME</span>/lib/native:<span class="variable">$JAVA_LIBRARY_PATH</span></span><br><span class="line"><span class="comment"># hadoop</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_CLASSPATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib/tools.jar</span><br><span class="line"><span class="comment"># scala</span></span><br><span class="line"><span class="built_in">export</span> SCALA_HOME=/usr/<span class="built_in">local</span>/scala</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;SCALA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="comment"># spark</span></span><br><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/<span class="built_in">local</span>/spark</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;SPARK_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="comment"># python</span></span><br><span class="line"><span class="built_in">export</span> PYTHONPATH=<span class="variable">$ANACONDA_PATH</span>/bin/python</span><br><span class="line"><span class="built_in">export</span> PYSPARK_PYTHON=<span class="variable">$ANACONDA_PATH</span>/bin/python</span><br><span class="line"><span class="comment"># anaconda</span></span><br><span class="line"><span class="built_in">export</span> PATH=/home/hduser/anaconda3/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> ANACONDA_PATH=/home/hduser/anaconda3</span><br><span class="line"><span class="built_in">export</span> PYSPARK_DRIVER_PYTHON=<span class="variable">$ANACONDA_PATH</span>/bin/ipython</span><br></pre></td></tr></table></figure>
 <p>配置完成之后，从系统注销再登陆系统，设置可以立即生效，或者使用source是其生效，输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p><strong>hostname主机名</strong></p>
+<p>在主机的hostname中输入master，将其作为namenode。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/hostname</span><br></pre></td></tr></table></figure>
 <p><strong>Hadoop-env.sh</strong></p>
 <p>打开文件的操作不再赘述，直接附上我的配置文件，在最后加上：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201</span><br><span class="line"><span class="built_in">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_HOME</span>/lib"</span> </span><br><span class="line"><span class="built_in">export</span> HDFS_NAMENODE_USER=hduser</span><br><span class="line"><span class="built_in">export</span> HDFS_DATANODE_USER=hduser</span><br><span class="line"><span class="built_in">export</span> HDFS_SECONDARYNAMENODE_USER=hduser</span><br></pre></td></tr></table></figure>
@@ -336,13 +343,253 @@ var _hmt = _hmt || [];
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown hduser:hduser -R /usr/<span class="built_in">local</span>/hadoop</span><br></pre></td></tr></table></figure>
 <p>格式化HDFS：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
+<h5 id="从机"><a href="#从机" class="headerlink" title="从机"></a>从机</h5><p><strong>hostname主机名</strong></p>
+<p>在主机的hostname中输入data1，将其作为datanode。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/hostname</span><br></pre></td></tr></table></figure>
+<p><strong>core-site.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://master:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>YARN-site.xml</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services.mapreduce.shuffle.class<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.mapred.ShuffleHandler<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.resource-tracker.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:8025<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:8030<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:8050<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>master<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>data1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>data1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>mapred-site.xml</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:54311<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>hdfs-site.xml</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 上面这个数值一般不超过从机数量 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.datanode.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>file:/usr/local/hadoop/hadoop_data/hdfs/datanode<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.http.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:50070<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="主机克隆到从机时需要注意"><a href="#主机克隆到从机时需要注意" class="headerlink" title="主机克隆到从机时需要注意"></a>主机克隆到从机时需要注意</h4><p><strong>配置网卡interfaces</strong></p>
+<p>在VMVare的虚拟机设置中添加一个网卡，且设置为仅连主机模式。此时一张网卡NAT模式连接互联网，另一张网卡用于主从及互相联通。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/interfaces.jpg" alt="data1-interfaces"></p>
+<p><strong>确认网络配置</strong></p>
+<p>输入命令确认网络设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/ifconfig.jpg" alt="网络配置"></p>
+<p>如果修改interfaces的方法无法成功修改网络配置，可以在图形界面的网络连接里自行手动修改。</p>
+<p><strong>主机SSH登陆从机创建HDFS相关目录</strong></p>
+<p>删除HDFS所有目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/<span class="built_in">local</span>/hadoop/hadoop_data/hdfs</span><br></pre></td></tr></table></figure>
+<p>创建DataNode存储目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/<span class="built_in">local</span>/hadoop/hadoop_data/hdfs/datenode</span><br></pre></td></tr></table></figure>
+<p>目录的所有者改为hduser</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R hduser:hduser /usr/<span class="built_in">local</span>/hadoop</span><br></pre></td></tr></table></figure>
+<p>####启动Hadoop集群</p>
+<p><strong>master主机启动集群</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+<p><strong>输入jps查看正在运行的进程</strong></p>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/master-jps.jpg" alt="master-jps"></p>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/data1-jps.jpg" alt="data1-jps"></p>
+<p><strong>NameNode Web界面</strong></p>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/HDFS%20Web.jpg" alt="HDFS Web"></p>
+<h4 id="Hadoop总结"><a href="#Hadoop总结" class="headerlink" title="Hadoop总结"></a>Hadoop总结</h4><p>在Hadoop集群这块仍存在疑问没有解决，曾经毕设的时候使用老版本的Hadoop没有发生过，现在存在了，暂时还未彻底找到完美解决办法：</p>
+<ol>
+<li><p>master主机始终存在DataNode进程</p>
+</li>
+<li><p>master主机使用start-all.sh的时候，data1从机DataNode等进程无法联动自动启动，不过手动启动不影响使用，但是在8088的Hadoop ResourceManager Web页面中显示的节点是master的而非data1的。</p>
+</li>
+</ol>
+<h3 id="HDFS命令实现"><a href="#HDFS命令实现" class="headerlink" title="HDFS命令实现"></a>HDFS命令实现</h3><p>在启动了集群之后，尝试着使用HDFS命令实现一些基本功能。</p>
+<h4 id="常用HDFS命令"><a href="#常用HDFS命令" class="headerlink" title="常用HDFS命令"></a>常用HDFS命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hadoop fs -mkdir</td>
+<td>创建HDFS目录</td>
+</tr>
+<tr>
+<td>hadoop fs -ls</td>
+<td>列出HDFS目录</td>
+</tr>
+<tr>
+<td>hadoop fs -copyFromLocal</td>
+<td>使用-copyFromLocal复制本地文件到HDFS</td>
+</tr>
+<tr>
+<td>hadoop fs -put</td>
+<td>使用-put复制本地文件到HDFS</td>
+</tr>
+<tr>
+<td>hadoop fs -cat</td>
+<td>列出HDFS目录下的内容</td>
+</tr>
+<tr>
+<td>hadoop fs -copyToLocal</td>
+<td>使用-copyToLocal将HDFS复制到本地</td>
+</tr>
+<tr>
+<td>hadoop fs -get</td>
+<td>使用-get将HDFS文件复制到本地</td>
+</tr>
+<tr>
+<td>hadoop fs -cp</td>
+<td>复制HDFS文件</td>
+</tr>
+<tr>
+<td>hadoop fs -rm</td>
+<td>删除HDFS文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="MapReduce命令实现"><a href="#MapReduce命令实现" class="headerlink" title="MapReduce命令实现"></a>MapReduce命令实现</h3><p>MapReduce是一种程序开发模式，可以使用大量服务器并行处理。Map就是分配工作，Reduce就是将工作结果汇总整理。</p>
+<p>首先使用Map将待处理的数据分割成很多小份数据，由每台服务器分别运行。</p>
+<p>再通过Raeduce程序进行数据合并，最后汇总整理结果。</p>
+<h4 id="试运行WordCount-java"><a href="#试运行WordCount-java" class="headerlink" title="试运行WordCount.java"></a>试运行WordCount.java</h4><h5 id="编辑WordCount-java"><a href="#编辑WordCount-java" class="headerlink" title="编辑WordCount.java"></a>编辑WordCount.java</h5><p><strong>创建wordcount测试目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/wordcount/input</span><br></pre></td></tr></table></figure>
+<p><strong>切换至wordcount测试目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/wordcount</span><br></pre></td></tr></table></figure>
+<p><strong>复制WordCount.java程序代码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit WordCount.java</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordCount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenizerMapper</span></span></span><br><span class="line"><span class="class">       <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> Text word = <span class="keyword">new</span> Text();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context</span></span></span><br><span class="line"><span class="function"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">      StringTokenizer itr = <span class="keyword">new</span> StringTokenizer(value.toString());</span><br><span class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">        word.set(itr.nextToken());</span><br><span class="line">        context.write(word, one);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntSumReducer</span></span></span><br><span class="line"><span class="class">       <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>,<span class="title">IntWritable</span>,<span class="title">Text</span>,<span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,</span></span></span><br><span class="line"><span class="function"><span class="params">                       Context context</span></span></span><br><span class="line"><span class="function"><span class="params">                       )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    Configuration conf = <span class="keyword">new</span> Configuration();</span><br><span class="line">    Job job = Job.getInstance(conf, <span class="string">"word count"</span>);</span><br><span class="line">    job.setJarByClass(WordCount.class);</span><br><span class="line">    job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">    job.setCombinerClass(IntSumReducer.class);</span><br><span class="line">    job.setReducerClass(IntSumReducer.class);</span><br><span class="line">    job.setOutputKeyClass(Text.class);</span><br><span class="line">    job.setOutputValueClass(IntWritable.class);</span><br><span class="line">    FileInputFormat.addInputPath(job, <span class="keyword">new</span> Path(args[<span class="number">0</span>]));</span><br><span class="line">    FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> Path(args[<span class="number">1</span>]));</span><br><span class="line">    System.exit(job.waitForCompletion(<span class="keyword">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="编译WordCount-java"><a href="#编译WordCount-java" class="headerlink" title="编译WordCount.java"></a>编译WordCount.java</h5><p><strong>编译WordCount程序</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop com.sun.tools.javac.Main WordCount.java</span><br></pre></td></tr></table></figure>
+<p><strong>把WordCount类打包成wc.jar</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar cf wc.jar WordCount*.class</span><br></pre></td></tr></table></figure>
+<h5 id="创建测试文本文件"><a href="#创建测试文本文件" class="headerlink" title="创建测试文本文件"></a>创建测试文本文件</h5><p><strong>复制文本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/<span class="built_in">local</span>/hadoop/LICENSE.txt ~/wordcount/input</span><br></pre></td></tr></table></figure>
+<p><strong>上传测试文件到HDFS目录</strong></p>
+<p>在HDFS创建目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir -p /user/hduser/wordcount/input</span><br></pre></td></tr></table></figure>
+<p>切换到数据文件目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/wordcount/input</span><br></pre></td></tr></table></figure>
+<p>上传文本文件到HDFS<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -copyFromLocal LICENSE.txt /user/hduser/wordcount/input</span><br></pre></td></tr></table></figure></p>
+<p>列出HDFS文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -ls /user/hduser/wordcount/input</span><br></pre></td></tr></table></figure>
+<h5 id="运行WordCount-java"><a href="#运行WordCount-java" class="headerlink" title="运行WordCount.java"></a>运行WordCount.java</h5><p>切换目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/wordcount</span><br></pre></td></tr></table></figure>
+<p>运行WordCount程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar wc.jar WordCount /user/hduser/wordcount/input/LICENSE.txt /user/hduser/wordcount/output</span><br></pre></td></tr></table></figure>
+<h5 id="查看运行结果"><a href="#查看运行结果" class="headerlink" title="查看运行结果"></a>查看运行结果</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -cat /user/hduser/wordcount/output/part-r-00000|more</span><br></pre></td></tr></table></figure>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/wordcount.jpg" alt="wordcount结果"></p>
+<h4 id="MapReduce总结"><a href="#MapReduce总结" class="headerlink" title="MapReduce总结"></a>MapReduce总结</h4><p>基本把MapReduce进行了一遍，但是它同时也存在一些缺点：</p>
+<ol>
+<li>程序设计模式不容易使用，而且Hadoop的MapReduce API太过低级，很难提高开发者效率</li>
+<li>有运行效率的问题，MapReduce需要将中间产生的数据保存的硬盘中，因此会有读写数据延迟的问题</li>
+<li>不支持实时处理，他原始的设计就是以批处理为主</li>
+</ol>
+<h3 id="Python-Spar安装"><a href="#Python-Spar安装" class="headerlink" title="Python Spar安装"></a>Python Spar安装</h3><h4 id="Spark-Cluster模式"><a href="#Spark-Cluster模式" class="headerlink" title="Spark Cluster模式"></a>Spark Cluster模式</h4><p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/cluster-overview.png" alt="Spark Cluser模式架构图"></p>
+<blockquote>
+<ul>
+<li>DriverProgram就是程序员所涉及的Spark程序，在Spark程序中必须定义SparkContext，是开发Spark应用的入口。</li>
+<li>SparkContext通过Cluster管理整个集群，集群中包含多个WorkerNode，在每个WorkNode中都有Executor负责执行任务。</li>
+</ul>
+</blockquote>
+<p>SparkContext通过Cluster Manager管理整个集群Cluster的好处是：所设计的Spark程序可以在不同的Cluster模式下运行。</p>
+<p><strong>Cluster Manager可以在下列模式运行</strong></p>
+<blockquote>
+<ul>
+<li>本地运行(Local Machine)——只需在程序中import Spark的链接库就可以实现。在本地运行时，对于只安装在一台计算机上最方便，适合刚入门时学习、测试使用</li>
+<li>Spark Standalone Cluster——由Spark提供的Cluster管理模式，若没有架设Hadoop Multi Node Cluster，则可以架设Spark Standalone Cluster，实现同台计算机并行计算，在这个模式下仍然可以直接存取Local Disk或者HDFS</li>
+<li>Hadoop YARN——Hadoop 2.x or later 新架构中更高效率的资源管理核心。Spark可以在YARN上运行，让YARN帮助它进行多台机器的资源管理。</li>
+<li>云端运行——针对更大规模的计算工作，本地机器或者自建集群的计算能力恐怕难以满足，此时可以将Spark程序在云平台上运行，好处是不用自己架设的费用，用多少付多少，可以随时扩容。</li>
+</ul>
+</blockquote>
+<h4 id="Scala安装"><a href="#Scala安装" class="headerlink" title="Scala安装"></a>Scala安装</h4><p>安装的方式不再赘述，基本上都是大同小异，环境配置整体的也在前文有提。</p>
+<p><strong>查看Scala版本</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scala -version</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/Scala-version.jpg" alt="Scala 2.11.12"></p>
+<p><strong>启动Scala</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scala</span><br></pre></td></tr></table></figure>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/Scala-run.jpg" alt="Scala运行"></p>
+<h4 id="Spark安装"><a href="#Spark安装" class="headerlink" title="Spark安装"></a>Spark安装</h4><p>pyspark的优点是具有交互的好处，输入命令立刻就可以看到响应。</p>
+<p>安装的方式不再赘述，在安装之后尝试启动。</p>
+<p><strong>启动pyspark</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyspark</span><br></pre></td></tr></table></figure>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/spark.jpg" alt="启动pyspark"></p>
+<p><strong>退出pyspark</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
+<h4 id="本地运行Spark"><a href="#本地运行Spark" class="headerlink" title="本地运行Spark"></a>本地运行Spark</h4><p><strong>pyspark本地运行</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyspark --master <span class="built_in">local</span>[*]</span><br></pre></td></tr></table></figure>
+<p>local[N]代表在本地运行，使用N个线程，也就是说可以同时执行N个程序。虽然是本地运行，但现在CPU大多数多核心，所以用多线程仍然会加速执行。local[*]会尽量使用我们机器上的CPU核心，我们也可以指定使用的线程数。</p>
+<p><strong>查看运行模式</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc.master</span><br></pre></td></tr></table></figure>
+<p><strong>读取本地文件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>textFile=sc.textFile(<span class="string">"file:/usr/local/spark/README.md"</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>显示项数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>textFile.count()</span><br></pre></td></tr></table></figure>
+<p><strong>读取HDFS文件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>textFile=sc.textFile(<span class="string">"hdfs://master:9000/user/hduser/wordcount/input/LICENSE.txt"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Hadoop-YAEN运行pyspark"><a href="#Hadoop-YAEN运行pyspark" class="headerlink" title="Hadoop YAEN运行pyspark"></a>Hadoop YAEN运行pyspark</h4><p><strong>pyspark YARN运行</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HADOOP_CONF_DIR=/usr/<span class="built_in">local</span>/hadoop/etc/hadoop pyspark --master yarn --deploy-mode client</span><br></pre></td></tr></table></figure>
+<h4 id="Spark-Standalone-Cluster运行"><a href="#Spark-Standalone-Cluster运行" class="headerlink" title="Spark Standalone Cluster运行"></a>Spark Standalone Cluster运行</h4><p><strong>复制模板文件创建spark-env.sh</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/<span class="built_in">local</span>/spark/conf/spark-env.sh.template /usr/<span class="built_in">local</span>/spark/conf/spark-env.sh</span><br></pre></td></tr></table></figure>
+<p><strong>spark-env.sh</strong><br>分别设置master的名称、每个worker使用的CPU核心、使用内存、设置实例数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_MASTER_IP=master</span><br><span class="line"><span class="built_in">export</span> SPARK_WORKER_CORES=1</span><br><span class="line"><span class="built_in">export</span> SPARK_WORKER_MEMORY=512m</span><br><span class="line"><span class="built_in">export</span> SPARK_WORKER_INSTANCES=4</span><br></pre></td></tr></table></figure></p>
+<p><strong>将master的spark程序复制到data1</strong></p>
+<p>首先ssh连接data1，连接成功后创建spark目录并更改所有者为hduser，使用scp命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo scp -r /usr/<span class="built_in">local</span>/spark hduser@data1:/usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+<p><strong>启动Spark Standalone Cluster</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/spark/sbin/start-all.sh</span><br></pre></td></tr></table></figure>
+<p><strong>Spark Standalone运行pyspark</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyspark --master spark://master:7077 --num-executors 1 --total-executor-cores 3 --executor-memory 512m</span><br></pre></td></tr></table></figure>
+<h4 id="Spark-Web-UI界面"><a href="#Spark-Web-UI界面" class="headerlink" title="Spark Web UI界面"></a>Spark Web UI界面</h4><p>在浏览器输入<a href="http://master:8080/" target="_blank" rel="noopener">http://master:8080/</a> 查看Spark Standalone Web UI界面。</p>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/spark-web.jpg" alt="Spark Web"></p>
+<p>单击PySparkShell链接可以看Spark Jobs，单击其中的Job可以查看详细执行过程，用于调试或Performance Tuning（性能调优）时找出那些执行缓慢的Job。</p>
+<p><strong>停止Spark Standalone Cluster</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/spark/sbin/stop-all.sh</span><br></pre></td></tr></table></figure>
+<h4 id="Spark总结"><a href="#Spark总结" class="headerlink" title="Spark总结"></a>Spark总结</h4><p>pyspark可以在不同模式下执行、获取本地以及HDFS文件，但是pyspark是在“终端”程序中使用纯文本界面时不方便，且执行的命令与结果无法记录，我们可以采用IPython Notebook来将数据分析的过程、运行后的命令与结构存储成笔记本，下次再打开笔记本时可以重新执行这些命令。</p>
+<h3 id="IPython-Notebook安装和运行"><a href="#IPython-Notebook安装和运行" class="headerlink" title="IPython Notebook安装和运行"></a>IPython Notebook安装和运行</h3><h4 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h4><p><strong>bash安装Anaconda</strong></p>
+<p>安装的方式大同小异，不过Anaconda下载下来是.sh文件，安装时使用bash命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Anaconda3-2019.03-Linux-x86_64.sh -b</span><br></pre></td></tr></table></figure>
+<p>“-b”指的是batch，按批次安装，会自动省略阅读license条款，自动安装到/home/hduser/anaconda3路径</p>
+<p>在从机data1上也同样方法安装</p>
+<p><strong>查看Python版本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/Anaconda3.jpg" alt="Python 3.7.3"></p>
+<h4 id="在IPython-Notebook使用Spark"><a href="#在IPython-Notebook使用Spark" class="headerlink" title="在IPython Notebook使用Spark"></a>在IPython Notebook使用Spark</h4><p><strong>创建ipynotebook工作目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/pythonwork/ipynotebook </span><br><span class="line"><span class="built_in">cd</span> ~/pythonwork/ipynotebook</span><br></pre></td></tr></table></figure>
+<p><strong>在IPython Notebook界面运行pyspark</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS=<span class="string">"notebook"</span> pyspark</span><br></pre></td></tr></table></figure>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/IPython%20Notebook.jpg" alt="IPython Notebook界面"></p>
+<p>新建一个Notebook后会打开新页面，默认名字为Untitled，可以点击后修改名称。</p>
+<p>在IPython Notebook的Cell中输入程序代码，然后按Shift+Enter或者Ctrl+Enter运行代码，差异如下：</p>
+<blockquote>
+<ul>
+<li>Shift+Enter 运行后光标会移动到下一个Cell</li>
+<li>Ctrl+Enter  运行后光标仍在当前Cell</li>
+</ul>
+</blockquote>
+<p><img src="https://dylanwen-1256745329.cos.ap-chengdu.myqcloud.com/pic_blog/spark1/IPython%20Notebook1.jpg" alt="IPython Notebook运行查看运行方式代码"></p>
+<p>在退出Notebook之前，需要及时保存内容。输入Ctrl+C在终端进行关闭，输入y结束。</p>
+<h4 id="IPython-Notebook总结"><a href="#IPython-Notebook总结" class="headerlink" title="IPython Notebook总结"></a>IPython Notebook总结</h4><p>IPython Notebook同样也有几种运行方式，也可以在Hadoop YARN-client模式、Spark Stand Alone模式运行。</p>
+<p>##Spark学习之路（一）填坑</p>
+<h3 id="Q1-启动HDFS缺少用户定义"><a href="#Q1-启动HDFS缺少用户定义" class="headerlink" title="Q1 启动HDFS缺少用户定义"></a>Q1 启动HDFS缺少用户定义</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Starting namenodes on [localhost] </span><br><span class="line">ERROR: Attempting to launch hdfs namenode as root </span><br><span class="line">ERROR: but there is no HDFS_NAMENODE_USER defined. Aborting launch.</span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<p>修改tart-dfs.sh、stop-dfs.sh，加上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HDFS_DATANODE_USER=root </span><br><span class="line">HADOOP_SECURE_DN_USER=hdfs </span><br><span class="line">HDFS_NAMENODE_USER=root </span><br><span class="line">HDFS_SECONDARYNAMENODE_USER=root</span><br></pre></td></tr></table></figure>
+<h3 id="Q2-启动YARN缺少用户定义"><a href="#Q2-启动YARN缺少用户定义" class="headerlink" title="Q2 启动YARN缺少用户定义"></a>Q2 启动YARN缺少用户定义</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Starting resourcemanager </span><br><span class="line">ERROR: Attempting to launch yarn resourcemanager as root </span><br><span class="line">ERROR: but there is no YARN_RESOURCEMANAGER_USER defined. Aborting launch. </span><br><span class="line">Starting nodemanagers </span><br><span class="line">ERROR: Attempting to launch yarn nodemanager as root </span><br><span class="line">ERROR: but there is no YARN_NODEMANAGER_USER defined. Aborting launch.</span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<p>修改start-yarn.sh、stop-yarn.sh，加上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">YARN_RESOURCEMANAGER_USER=root</span><br><span class="line">HADOOP_SECURE_DN_USER=yarn</span><br><span class="line">YARN_NODEMANAGER_USER=root</span><br></pre></td></tr></table></figure>
+<h3 id="Q3-50070端口打不开"><a href="#Q3-50070端口打不开" class="headerlink" title="Q3 50070端口打不开"></a>Q3 50070端口打不开</h3><p>发现可能是namenode初始化默认端口失效，于是决定手动修改配置文件设置默认端口</p>
+<p>解决办法：</p>
+<p>修改hdfs-site.xml，添加：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.http.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:50070<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>再重新hadoop namenode -format初始化一遍。</p>
+<h3 id="Q4-SSH从机始终需要输入密码"><a href="#Q4-SSH从机始终需要输入密码" class="headerlink" title="Q4 SSH从机始终需要输入密码"></a>Q4 SSH从机始终需要输入密码</h3><p>在SSH data1的时候，每次都需要输入密码，查了许多资料，有点说还需要修改一个文件，的确修改后成功免密登陆。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p>找到以下内容，并去掉前边的#，如果没有对应文字内容，直接加上去：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile  .ssh/authorized_keys</span><br><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+<p>再重启sshd服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart ssh</span><br></pre></td></tr></table></figure></p>
+<h3 id="Q5-start-all之后master机器jps没有ResourceManager和NodeManager进程"><a href="#Q5-start-all之后master机器jps没有ResourceManager和NodeManager进程" class="headerlink" title="Q5 start-all之后master机器jps没有ResourceManager和NodeManager进程"></a>Q5 start-all之后master机器jps没有ResourceManager和NodeManager进程</h3><p>在网上试了很多种办法，最终确定是我当时的JDK版本过高，Hadoop3.2使用JDK8即可正常运行这两个进程。</p>
+<h3 id="Q6-Mapreduce运行异常"><a href="#Q6-Mapreduce运行异常" class="headerlink" title="Q6 Mapreduce运行异常"></a>Q6 Mapreduce运行异常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Container exited with a non-zero <span class="built_in">exit</span> code 1</span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<p>新版本的hadoop的yarn中需要配置上正面的内容，于是在yarn-site.xml添加正面内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>master<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>data1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>data1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>保存完同时覆盖集群其他节点上的这个文件，最后重启yarn再启动mapreduce应用，成功运行。</p>
+<p>##接下来计划</p>
+<p><strong>继续学习《Python+Spark2.0+Hadoop机器学习与大数据实战》</strong></p>
+<ol>
+<li>关于RDD基本运算、eclipse+pyDev的安装和运行返利程序</li>
+<li>RDD为基础的Spark MLlib机器学习，包括创建推荐引擎、决策树二元分类、逻辑回归二元分类、SVM二元分类、朴素贝叶斯二元分类、决策树多元分类、决策树回归分析等</li>
+<li>dataframe为基础的Spark ML Pipeline机器学习，包括SQL、DataFrame、RDD数据统计与可视化、流程二元\多元分类、流程回归分析。</li>
+</ol>
+<p><strong>开始学习《Spark高级数据分析》</strong></p>
+<p><strong>解决第一次学习之路遗留问题</strong></p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://wenshunjie.top/posts/programming/2019-04-04-Spark学习之路（一）.html" data-id="cju72ybld0006msr3ts7otjz4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://wenshunjie.top/posts/programming/2019-04-04-Spark学习之路（一）.html" data-id="cju8ftyd3000hukr31hbytkep" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
